@@ -1,0 +1,15 @@
+/*@import "../../../sass/variables";*/
+/*@import "../../../sass/mixins/rem";*/
+
+/*.component {*/
+
+  /*&__container {*/
+    /*@include rem(padding, 10px);*/
+    /*border: 2px solid $colours-two;*/
+
+    /*&:hover {*/
+      /*cursor: pointer;*/
+    /*}*/
+  /*}*/
+
+/*}*/

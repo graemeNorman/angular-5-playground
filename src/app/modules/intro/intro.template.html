@@ -1,0 +1,26 @@
+<div class="[ container ]">
+  <h1> {{ intro.heading }} </h1>
+  <div class="[ row ]">
+
+    <div class="[ col-12 col-lg-10 ]">
+      <p> Welcome to the Angular 5 playground app, this app will contain examples of (but not limited too) the following. </p>
+      <ul *ngFor="let item of intro.contents">
+        <li> {{ item }} </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <br /><br /><br />
+
+  <div class="[ row ]">
+
+    <div class="[ col-12 col-lg-10 ]">
+      <span> Click to generate results </span>
+      <button type="button"
+              class="btn btn-primary"
+              (click)="showResults()"> Show Results </button>
+    </div>
+
+  </div>
+</div>
