@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-intro-home',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class IntroComponent implements OnInit {
     intro: any;
+
+    constructor(private router: Router) { }
 
     ngOnInit() {
       this.intro = {
@@ -21,4 +24,17 @@ export class IntroComponent implements OnInit {
         ]
       };
     }
+
+    public showResults() {
+      console.log('you clicked me... nice one!!');
+      this.router.navigate(['/', 'searchResults']);
+      //   .then(
+      //   nav => {
+      //     console.log(nav);
+      //   }, err => {
+      //     console.log(err);
+      //   }
+      // );
+    }
+
 }
