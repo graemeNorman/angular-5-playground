@@ -1,0 +1,46 @@
+/*!
+ * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+//@import "custom";
+
+// Reset and dependencies
+@import "normalize";
+@import "print";
+
+// Core CSS
+@import "reboot";
+@import "type";
+@import "images";
+@import "code";     // Will delete for main APP but for rubix and the purpose of possible code snippets this could be useful!
+@import "grid";
+@import "tables";
+@import "buttons";
+@import "forms";
+@import "dropdown";
+@import "alert";
+@import "tooltip";
+
+// Components
+@import "transitions";
+@import "button-group";
+@import "input-group";
+//@import "custom-forms";
+@import "nav";
+//@import "navbar";
+@import "card";
+//@import "responsive-embed";
+
+// Components w/ JavaScript
+@import "modal";
+//@import "tooltip";
+
+// Utility classes
+@import "utilities";
+@import "carousel";

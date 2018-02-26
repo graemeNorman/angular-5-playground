@@ -1,0 +1,24 @@
+@import "../mixins/rem";
+@import "../variables";
+
+/***
+  rubix
+***/
+
+html {
+  @include rem-baseline;
+}
+
+body {
+  height: 100vh;
+
+  .content-container {
+    padding: 5%;
+  }
+
+  // Over-writing bootstrap
+  .row > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

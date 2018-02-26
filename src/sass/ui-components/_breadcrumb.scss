@@ -1,0 +1,11 @@
+@import "../variables";
+@import "../mixins/rem";
+
+.breadcrumb {
+  background: $black;
+  padding: 1.5% 10%;
+
+  span, a {
+    color: $white;
+  }
+}

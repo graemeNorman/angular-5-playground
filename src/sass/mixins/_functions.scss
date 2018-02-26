@@ -1,0 +1,11 @@
+/**
+  SASS utility functions
+ */
+
+@function opacity-black($opacity) {
+  @return rgba(black, $opacity)
+}
+
+@function opacity-white($opacity) {
+  @return rgba(white, $opacity)
+}

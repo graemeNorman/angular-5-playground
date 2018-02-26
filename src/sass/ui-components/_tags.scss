@@ -1,0 +1,50 @@
+@import "../theme";
+@import "../mixins/rem";
+
+.tag {
+  @include rem(border-radius, 4px);
+  @include rem(margin, 7.5px 3.75px 0 3.75px);
+  @include rem(padding, 3px 7px);
+  border: 1px solid $colours-one;
+  display: inline-block;
+  text-align: center;
+
+  &:hover {
+    background: $colours-one;
+    color: $white;
+    cursor: pointer;
+  }
+
+  &--dark {
+    border: 1px solid $white;
+    color: $white;
+
+    &:hover {
+      background: $white;
+      color: $colours-one;
+      cursor: pointer;
+    }
+
+    &--no-border {
+      @include rem(padding, 0);
+      border: none;
+
+      &:hover {
+        background: inherit;
+        color: $colours-one;
+      }
+    }
+  }
+
+  &--no-border {
+    @include rem(padding, 0);
+    border: none;
+
+    &:hover {
+      background: inherit;
+      color: $white;
+    }
+  }
+
+}
+

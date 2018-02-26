@@ -1,0 +1,36 @@
+
+/**
+  $font-family-primary
+ */
+  @font-face {
+    font-family: $font-family-primary-type-one;
+    src: url("../assets/fonts/#{to_lower_case($font-family-primary)}/#{$font-family-primary-type-one}.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: $font-family-primary-type-two;
+    src: url("../assets/fonts/#{to_lower_case($font-family-primary)}/#{$font-family-primary-type-two}.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: $font-family-primary-type-three;
+    src: url("../assets/fonts/#{to_lower_case($font-family-primary)}/#{$font-family-primary-type-three}.otf") format("opentype");
+  }
+
+/**
+  $font-family-secondary
+ */
+  @font-face {
+    font-family: $font-family-secondary-type-one;
+    src: url("../assets/fonts/#{to_lower_case($font-family-secondary)}/#{$font-family-secondary-type-one}.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: $font-family-secondary-type-two;
+    src: url("../assets/fonts/#{to_lower_case($font-family-secondary)}/#{$font-family-secondary-type-two}.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: $font-family-secondary-type-three;
+    src: url("../assets/fonts/#{to_lower_case($font-family-secondary)}/#{$font-family-secondary-type-three}.otf") format("opentype");
+  }

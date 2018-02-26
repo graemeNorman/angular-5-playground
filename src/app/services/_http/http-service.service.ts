@@ -1,0 +1,19 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+// Constants
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type' : 'application-json' })
+};
+const url = 'https://public-api.wowcher.co.uk/v1/deal/brighton?pageSize=550';
+
+@Injectable()
+export class ApiService {
+
+  constructor(private _http: HttpClient) { }
+
+  getDeals() {
+    return this._http.get(url);
+  }
+
+}

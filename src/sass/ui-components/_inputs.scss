@@ -1,0 +1,95 @@
+@import "../theme";
+@import "../variables";
+@import "../mixins/rem";
+
+.input-fields-select {
+
+  overflow: hidden;
+  @include rem(height, 35px);
+  width: 100%;
+  position: relative;
+  display: block;
+  @include rem(border-radius, 0px);
+
+  &:hover{
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+  }
+
+  &:before {
+    @include rem(height, 35px);
+    @include rem(right, 15px);
+    @include rem(top, 0px);
+    @include rem(font-size, 40px);
+    content: "\e90e";
+    font-family: 'componentLibrary';
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+/* Text-fied */
+.input-fields-textbox {
+  @include rem(height, 45px);
+  @include rem(padding, 0 15px);
+  border: solid 1px $border-grey;
+  background-color: $white;
+  width: 100%;
+
+  &:hover{
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+  }
+
+  &:disabled{
+    background-color: $light-grey;
+    cursor: not-allowed;
+  }
+
+  &--text { }
+  &--number {}
+  &--password {}
+  &--tel {}
+  &--email {}
+}
+
+/* Text-area */
+.input-fields-textarea {
+  @include rem(height, 185px);
+  @include rem(padding, 20px);
+  background-color: $white;
+  border: solid 1px $border-grey;
+  resize: none;
+  width: 100%;
+
+  &:hover {
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.16);
+  }
+  &:disabled {
+    background-color: $light-grey;
+    cursor: not-allowed;
+    color: $border-grey;
+  }
+}
+
+.error__text {
+  @include rem(margin, 10px 0 0);
+  color: $standard-red;
+  display: inline-block;
+  width: 100%;
+
+  &__border {
+    border: solid 1px $standard-red;
+
+    &:hover {
+      box-shadow: 0px 0px 4px 0px $standard-red;
+      -moz-box-shadow: 0px 0px 4px 0px $standard-red;
+      -webkit-box-shadow: 0px 0px 4px 0px $standard-red;
+    }
+  }
+}

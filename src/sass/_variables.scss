@@ -1,0 +1,29 @@
+/** NOTE: This is a generated file - see gulpfile for more details **/
+@import "theme";
+
+/** Fixed colours - only brand specific colours shouldn't be in here! */
+
+$white:             #ffffff;
+$black:             #000000;
+$text-grey:         #3B3B3B;
+$dark-grey:         #606060;
+$medium-grey:       #929292;
+$border-grey:       #E4E4E4;
+$base-grey:         #ECECEC;
+$light-grey:        #F2F2F2;
+$activity-orange:   #FF8B00;
+$standard-green:    #48B04B;
+$standard-red:      #D62D28;
+
+/**
+ Rest of these colours should be removed or added to the palette if agreed with Design!!
+**/
+
+$pill-background: #D8D8D8;
+$pill-disabled-background: #E1E1E1;
+$pill-disabled-color: #C4C4C4;
+
+$warning-background-danger: #D62D28;
+$warning-background-warning: #FCF8E3;
+$warning-background-info: #D9EDF7;
+$warning-background-success: #DFF0D8;

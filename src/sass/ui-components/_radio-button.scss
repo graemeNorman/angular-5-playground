@@ -1,0 +1,53 @@
+@import "../theme";
+@import "../mixins/rem";
+
+.radio-btn {
+  @include rem(margin, 0 0 10px);
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+
+  &__label {
+    background-repeat: no-repeat;
+    cursor: pointer;
+    @include rem(height, 16px);
+    @include rem(margin, 1px 10px 0 0);
+    @include rem(padding, 24px 0 0 24px);
+    @include rem(width, 16px);
+
+    &--hover {
+       background-image: url('/../../assets/images/radio-buttons/RadioButton_Hover.svg');
+    }
+    &--static {
+      background-image: url('/../../assets/images/radio-buttons/RadioButton_Static.svg');
+    }
+    &--invalid {
+       background-image: url('/../../assets/images/radio-buttons/RadioButton_Invalid.svg');
+    }
+    &--selected {
+      background-image: url('/../../assets/images/radio-buttons/RadioButton_Selected.svg');
+    }
+    &--disabled {
+      background-image: url('/../../assets/images/radio-buttons/RadioButton_Selected.svg');
+    }
+    &--static:hover {
+       background-image: url('/../../assets/images/radio-buttons/RadioButton_Hover.svg');
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &--disabled {
+      opacity: 0.5;
+  }
+
+  &__text {
+    @include rem(padding, 5px 0 0);
+  }
+
+  input[type="radio"]:checked + .radio-btn__label--static {
+    background-image: url('/../../assets/images/radio-buttons/RadioButton_Selected.svg');
+  }
+}

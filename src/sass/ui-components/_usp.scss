@@ -1,0 +1,31 @@
+@import "../theme";
+@import "../mixins/rem";
+
+.usp {
+  display: flex;
+
+  p {
+    align-self: baseline;
+    color: $primary-usp;
+  };
+
+  &--banner {
+    @include rem(height, 20px);
+    @include rem(width, 200px);
+    align-items: center;
+    background: $primary-usp;
+    border: 1px solid $primary-usp;
+    justify-content: center;
+
+    p {
+      color: $white;
+    }
+  }
+
+  &--multiline {
+    @include rem(padding, 0 0 0 10px);
+    @include rem(width, 110px);
+    border-left: 3px solid $primary-usp;
+    flex-direction: column;
+  }
+}

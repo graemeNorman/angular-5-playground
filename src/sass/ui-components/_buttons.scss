@@ -1,0 +1,123 @@
+@import "../variables";
+@import "../mixins/rem";
+
+/* container style */
+
+.container-dark, .container-light {
+  @include rem(padding, 50px);
+}
+
+.container-dark {
+  background-color: $colours-one;
+}
+
+.ui-btn {
+
+  &-common {
+    border: none;
+    cursor: pointer;
+  }
+
+  &__primary {
+    @include rem(padding, 0px 15px);
+    @include rem(height, 45px);
+    @extend .ui-btn-common;
+  }
+
+  &__secondary {
+    @include rem(height, 30px);
+    @extend .ui-btn__primary;
+  }
+
+  &--full-width {
+    @include rem(height, 60px);
+    width: 100%;
+  }
+
+  &__link {
+    @include rem(padding, 0 5px);
+    background: transparent;
+    border: none;
+    color: $colours-one;
+    @extend .ui-btn-common;
+
+    &--dark {
+      @extend .ui-btn__link;
+      color: $white;
+    }
+
+    &:after {
+      @include rem(margin, 0 0 0 5px);
+      content: "\e910";
+      font-family: componentLibrary;
+      vertical-align: middle;
+    }
+  }
+
+  &--light {
+    border: none;
+    background-color: $white;
+    color: $colours-one;
+
+    &:hover {
+      background-color: $medium-grey;
+    }
+
+    &:disabled {
+      background-color: $white;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &--dark {
+    background-color: $colours-one;
+    outline: none;
+
+    &:hover {
+      background-color: $black;
+    }
+
+    &:disabled {
+      background-color: $colours-one;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &--outline-dark {
+    background-color: transparent;
+    border: none;
+    outline: solid 1px $colours-one;
+
+    &:hover {
+      background-color: $colours-one;
+      color: $white;
+    }
+
+    &:disabled {
+      background-color: $colours-one;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &--outline-light {
+    background-color: transparent;
+    border: none;
+    outline: solid 1px $white;
+
+    &:hover {
+      background-color: $white;
+      color: $colours-one;
+    }
+
+    &:disabled {
+      background-color: $white;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+}
+

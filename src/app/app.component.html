@@ -1,20 +1,65 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+<h1> Angular 5 Wowcher Public API demo </h1>
+<h2> Deals </h2>
+
+<div class="container">
+  <div *ngIf="_busy" class="row">
+    <div class="col-12">
+      <img src="/assets/loading.gif" alt="content loading" />
+    </div>
+  </div>
+
+  <div *ngIf="!_busy" class="row">
+
+    <div class="[ col-4 ]"
+         *ngFor="let offer of _offers?.deals">
+
+      <div class="[ custom__card ]">
+        <span *ngIf="offer?.images.length >= 1">
+          <img class="card-img-top"
+               src="{{ offer?.images[0].imageUrl }}.jpg" alt="{{ offer?.images[0].alt }}}" />
+        </span>
+        <span *ngIf="offer?.images.length < 1">
+          <img class="card-img-top"
+               src="http://via.placeholder.com/225x225?text=No%20image%20available" alt="No image available" />
+        </span>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ offer.headline }}</h5>
+          <p class="card-text">Buy now at only £{{ offer.price }}</p>
+          <a href="#" class="btn btn-primary">View deal</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+
+<!--<div *ngIf="!_busy">-->
+
+  <!--<div *ngIf="_offers?.mainDeal">-->
+    <!--<h2>Main Deal</h2>-->
+    <!--<h4>{{ _offers.mainDeal.title }}}</h4>-->
+    <!--<div *ngFor="let img of _offers?.mainDeal?.images">-->
+      <!--<img src="{{ img.imageUrl }}.jpg" alt="{{ img.alt }}}" />-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<h2> Other Deals </h2>-->
+
+  <!--<div class="deal"-->
+       <!--*ngFor="let offer of _offers?.deals"-->
+  <!--&gt;-->
+    <!--<h4> {{ offer.headline }} </h4>-->
+    <!--<span *ngFor="let img of _offers?.deals?.images">-->
+      <!--<img src="{{ img.imageUrl }}.jpg" alt="{{ img.alt }}}" />-->
+    <!--</span>-->
+
+  <!--</div>-->
+
+<!--</div>-->
+
 

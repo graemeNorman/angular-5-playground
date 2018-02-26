@@ -1,0 +1,9 @@
+
+.custom__card {
+  border: 1px solid #cfcfcf;
+  border-radius: 7px;
+  float: left;
+  margin: 0 0 10px;
+  min-height: 410px;
+  padding: 5px;
+}

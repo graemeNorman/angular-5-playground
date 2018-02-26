@@ -1,0 +1,64 @@
+@import "../theme";
+@import "../mixins/rem";
+
+/*
+  Usage: there are 2 different types of status: dotted and underline status
+    .status --> dotted status
+    .status-line --> underline status
+
+  The colour depends on these classes
+    .status--green
+    .status--gold
+    .status--red
+    .status--orange
+*/
+
+.status-circle-before {
+  @include rem(margin, 0 5px 0 0);
+  @include rem(height, 9px);
+  @include rem(width, 9px);
+  content: '';
+  background: $black;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-line-before {
+  content: '';
+  display: block;
+  width: 100%;
+  border-top: 1px solid $black;
+}
+
+.status {
+  &:before { @extend .status-circle-before; }
+
+  &--red {
+    color: $standard-red;
+    &:before { background-color: $standard-red; }
+  }
+
+  &--green {
+    color: $standard-green;
+    &:before { background-color: $standard-green; }
+  }
+
+  &--orange {
+    color: $activity-orange;
+    &:before { background-color: $activity-orange; }
+  }
+
+  &--gold {
+    color: $colours-two;
+    &:before { background-color: $colours-two; }
+  }
+
+}
+
+.status-line {
+  &:before { @extend .status-line-before; }
+  &.status--red:before { border-color: $standard-red !important; }
+  &.status--green:before { border-color: $standard-green !important; }
+  &.status--orange:before { border-color: $activity-orange !important; }
+  &.status--gold:before { border-color: $colours-two !important; }
+}

@@ -1,0 +1,164 @@
+@import "../variables";
+@import "../mixins/rem";
+
+.typography {
+  @include rem(margin, 0 0 20px);
+
+  &__container {
+    @include rem(margin, 0 0 45px);
+  }
+
+  &__heading {
+    @include rem(font-size, 13px);
+    @include rem(line-height, 16px);
+    @include rem(padding, 0);
+    -webkit-font-smoothing: antialiased;
+    color: $colours-one;
+    font-family: $font-family-primary-type-one;
+    font-weight: 300;
+  }
+
+  &__text-sample {
+    display: flex;
+  }
+}
+
+.typography-x-large,
+.typography-x-large-darkType {
+  @include rem(font-size, 42px);
+  @include rem(line-height, 48px);
+  -webkit-font-smoothing: antialiased;
+  color: $dark-grey;
+  font-family: $font-family-secondary-type-one;
+  font-weight: 300;
+}
+.typography-large,
+.typography-large-darkType {
+  @include rem(font-size, 27px);
+  @include rem(line-height, 32px);
+  -webkit-font-smoothing: antialiased;
+  color: $dark-grey;
+  font-family: $font-family-secondary-type-two;
+  font-weight: 300;
+}
+
+.typography-medium,
+.typography-medium-darkType {
+  @include rem(font-size, 24px);
+  @include rem(line-height, 28px);
+  -webkit-font-smoothing: antialiased;
+  color: $dark-grey;
+  font-family: $font-family-secondary-type-two;
+  font-weight: 300;
+}
+
+.typography-small,
+.typography-small-darkType {
+  @include rem(font-size, 18px);
+  @include rem(line-height, 22px);
+  -webkit-font-smoothing: antialiased;
+  color: $dark-grey;
+  font-family: $font-family-primary-type-two;
+  font-weight: 500;
+}
+
+.typography-heading,
+.typography-heading-darkType {
+  @include rem(font-size, 22px);
+  @include rem(line-height, 26px);
+  -webkit-font-smoothing: antialiased;
+  color: $text-grey;
+  font-family: $font-family-primary-type-two;
+  font-weight: 300;
+}
+
+.typography-sub-heading,
+.typography-sub-heading-darkType {
+  @include rem(font-size, 18px);
+  @include rem(line-height, 22px);
+  -webkit-font-smoothing: antialiased;
+  color: $text-grey;
+  font-family: $font-family-primary-type-two;
+  font-weight: 300;
+}
+
+.typography-body-light,
+.typography-body-light-darkType {
+  @include rem(font-size, 14px);
+  @include rem(line-height, 18px);
+  -webkit-font-smoothing: antialiased;
+  color: $text-grey;
+  font-family: $font-family-primary-type-two;
+  font-weight: 300;
+}
+
+.typography-body-book,
+.typography-body-book-darkType {
+  @include rem(font-size, 14px);
+  @include rem(line-height, 18px);
+  -webkit-font-smoothing: antialiased;
+  color: $text-grey;
+  font-family: $font-family-primary-type-two;
+  font-weight: 300;
+}
+
+.typography-body-medium,
+.typography-body-medium-darkType {
+  @include rem(font-size, 14px);
+  @include rem(line-height, 18px);
+  -webkit-font-smoothing: antialiased;
+  color: $text-grey;
+  font-family: $font-family-primary-type-two;
+  font-weight: 800;
+}
+
+.typography-small-text,
+.typography-small-text-darkType {
+  @include rem(font-size, 12px);
+  @include rem(line-height, 14px);
+  -webkit-font-smoothing: antialiased;
+  color: $text-grey;
+  font-family: $font-family-primary-type-two;
+  font-weight: 300;
+}
+
+.typography-caption,
+.typography-caption-darkType {
+  @include rem(font-size, 10px);
+  @include rem(line-height, 10px);
+  -webkit-font-smoothing: antialiased;
+  color: $colours-two;
+  font-family: $font-family-primary-type-one;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.dark-theme {
+  @include rem(padding, 7.5px);
+  background: $dark-grey;
+}
+
+:focus {
+  outline: 0;
+}
+
+/**
+  General typography rules
+ */
+
+[class*="-darkType"] {
+  color: $white;
+}
+
+p, a, ul, li {
+  @extend .typography-body-medium;
+  @include rem(padding, 0 0 10px);
+}
+ul, ol {
+  list-style: disc;
+
+  li {
+    @include rem(padding, 0 0 5px);
+    list-style-position: inside;
+  }
+}

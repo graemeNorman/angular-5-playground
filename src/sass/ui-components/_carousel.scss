@@ -1,0 +1,88 @@
+@import "../theme";
+@import "../mixins/rem";
+@import "../icons/component-library-variables";
+
+//TODO to set a custom height, override .carousel-inner bootstrap class
+
+/* Bootstrap overriding */
+
+.carousel-inner {
+  @include rem(height, 290px);
+}
+
+.carousel-indicators {
+  background: none;
+  border-top: 1px solid $white;
+  @include rem(bottom, 10px);
+  @include rem(margin-left, 20px);
+  @include rem(margin-right, 20px);
+
+  li {
+    background: none;
+    max-width: 100%;
+    @include rem(margin-left, 0px);
+    @include rem(margin-right, 0px)
+  }
+}
+
+.carousel-caption {
+  @include rem(right, 0px);
+  @include rem(left, 20px);
+  @include rem(bottom, 0px);
+  @include rem(padding-bottom, 10px);
+  text-align: left;
+}
+
+.carousel.slide,
+.carousel-item.active,
+.carousel-item.active img,
+.item.active {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item.active {
+  height: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+  opacity: 0.7;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover{
+  opacity: 1;
+}
+
+.carousel-control-next-icon{
+  cursor: pointer;
+  @include rem(width, 28px);
+  @include rem(height, 28px);
+  @include rem(line-height, 28px);
+  @include rem(text-indent, 1px);
+  border-radius: 50%;
+  background: $white;
+}
+
+.carousel-control-prev-icon {
+  cursor: pointer;
+  @include rem(width, 28px);
+  @include rem(height, 28px);
+  @include rem(line-height, 28px);
+  @include rem(text-indent, -1px);
+  border-radius: 50%;
+  background: $white;
+}
+
+.carousel-control-next-icon:before {
+  content: $ico-Icon_ArrowRight;
+  font-family: 'componentLibrary';
+  @include rem(font-size, 16px);
+}
+
+.carousel-control-prev-icon:before {
+  content: $ico-Icon_ArrowLeft;
+  font-family: 'componentLibrary';
+  @include rem(font-size, 16px);
+}
