@@ -17,20 +17,6 @@
 <!-- end of breadcrumb -->
 
 <div class="[ container ][ content__container ]" *ngIf="isParentActive">
-  <div class="[ row ]">
-    <div class="[ col-sm-12 col-md-4 col-lg-12 ]">
-      <h1 class="[ typography-large ]"> Search Results Page! </h1>
-      <p class="[ typography-body-book ]">
-        {{ componentsHeader }}
-      </p>
-    </div>
-  </div>
-</div>
-
-<!--<h1> Angular 5 Wowcher Public API demo </h1>-->
-<!--<h2> Deals </h2>-->
-
-<div class="container">
   <div *ngIf="_busy" class="row">
     <div class="col-12">
       <img src="/assets/loading.gif" alt="content loading" />
@@ -38,6 +24,13 @@
   </div>
 
   <div *ngIf="!_busy" class="row">
+
+    <div class="[ col-12 ]"
+         *ngIf="_httpStatus !== 200">
+      <h2> Server Error: <span style="color: red;"> {{ _httpStatus }} </span> </h2>
+      <h3> We're sorry. <br /> We are experiencing some technical difficulties. </h3>
+      <p> Please try again shortly! </p>
+    </div>
 
     <div class="[ col-4 ]"
          *ngFor="let offer of _offers?.deals">
@@ -60,11 +53,8 @@
       </div>
 
     </div>
-
   </div>
-
 </div>
-
 
 <!--<div class="[ container ][ content__container ]" *ngIf="!isParentActive">-->
   <!--<router-outlet></router-outlet>-->
