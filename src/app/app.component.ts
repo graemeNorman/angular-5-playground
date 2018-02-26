@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getDeals();
+    // this.getDeals();
   }
 
 }
