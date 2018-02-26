@@ -25,12 +25,14 @@
 
   <div *ngIf="!_busy" class="row">
 
+    <!-- error handling -->
     <div class="[ col-12 ]"
-         *ngIf="_httpStatus !== 200">
-      <h2> Server Error: <span style="color: red;"> {{ _httpStatus }} </span> </h2>
-      <h3> We're sorry. <br /> We are experiencing some technical difficulties. </h3>
+         *ngIf="_httpStatus.status !== 200">
+      <h2> Error: <span style="color: red;"> {{ _httpStatus.status }} </span> </h2>
+      <h3> We're sorry. <br /> {{ _httpStatus.message }} </h3>
       <p> Please try again shortly! </p>
     </div>
+    <!-- end of error handling -->
 
     <div class="[ col-4 ]"
          *ngFor="let offer of _offers?.deals">

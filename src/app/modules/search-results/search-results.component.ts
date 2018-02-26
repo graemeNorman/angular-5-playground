@@ -15,7 +15,7 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   componentsHeader = 'This is the search results page!!!!';
   public _offers;
   public _busy: boolean;
-  public _httpStatus: number;
+  public _httpStatus: any;
 
   constructor(private _router: Router, private _apiService: ApiService) {
     // Router Subscription:
@@ -27,12 +27,18 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
 
     // Results loading (getDeals):
     this._busy = true;
+    this._httpStatus = {
+      status: 200
+    };
   }
 
   public getDeals() {
     this._apiService.getDeals().subscribe(
-      data => { this._offers = data; this._httpStatus = 200; },
-      err => { this._busy = false; this._httpStatus = err.status; },
+      data => { this._offers = data; this._httpStatus.status = 200; },
+      err => {
+        this._busy = false;
+        this._httpStatus = err;
+      },
       () => {
         console.log( this._offers.deals[2].images, 'loading deals complete' ),
           this._busy = false;
