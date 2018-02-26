@@ -1,41 +1,51 @@
 
-<h1> Angular 5 Wowcher Public API demo </h1>
-<h2> Deals </h2>
 
-<div class="container">
-  <div *ngIf="_busy" class="row">
-    <div class="col-12">
-      <img src="/assets/loading.gif" alt="content loading" />
+<!-- Use this now app.routing is set-up -->
+<router-outlet></router-outlet>
+
+<!--
+  <h1> Angular 5 Wowcher Public API demo </h1>
+  <h2> Deals </h2>
+
+  <div class="container">
+    <div *ngIf="_busy" class="row">
+      <div class="col-12">
+        <img src="/assets/loading.gif" alt="content loading" />
+      </div>
     </div>
-  </div>
 
-  <div *ngIf="!_busy" class="row">
+    <div *ngIf="!_busy" class="row">
 
-    <div class="[ col-4 ]"
-         *ngFor="let offer of _offers?.deals">
+      <div class="[ col-4 ]"
+           *ngFor="let offer of _offers?.deals">
 
-      <div class="[ custom__card ]">
-        <span *ngIf="offer?.images.length >= 1">
-          <img class="card-img-top"
-               src="{{ offer?.images[0].imageUrl }}.jpg" alt="{{ offer?.images[0].alt }}}" />
-        </span>
-        <span *ngIf="offer?.images.length < 1">
-          <img class="card-img-top"
-               src="http://via.placeholder.com/225x225?text=No%20image%20available" alt="No image available" />
-        </span>
+        <div class="[ custom__card ]">
+          <span *ngIf="offer?.images.length >= 1">
+            <img class="card-img-top"
+                 src="{{ offer?.images[0].imageUrl }}.jpg" alt="{{ offer?.images[0].alt }}}" />
+          </span>
+          <span *ngIf="offer?.images.length < 1">
+            <img class="card-img-top"
+                 src="http://via.placeholder.com/225x225?text=No%20image%20available" alt="No image available" />
+          </span>
 
-        <div class="card-body">
-          <h5 class="card-title">{{ offer.headline }}</h5>
-          <p class="card-text">Buy now at only £{{ offer.price }}</p>
-          <a href="#" class="btn btn-primary">View deal</a>
+          <div class="card-body">
+            <h5 class="card-title">{{ offer.headline }}</h5>
+            <p class="card-text">Buy now at only £{{ offer.price }}</p>
+            <a href="#" class="btn btn-primary">View deal</a>
+          </div>
         </div>
+
       </div>
 
     </div>
 
   </div>
+-->
 
-</div>
+
+
+
 
 
 <!--<div *ngIf="!_busy">-->

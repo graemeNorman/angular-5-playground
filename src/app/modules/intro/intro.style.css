@@ -1,0 +1,15 @@
+/*@import "../../../sass/variables";*/
+/*@import "../../../sass/mixins/rem";*/
+
+/*.buildingBlocks {*/
+  /*&__img {*/
+    /*@include rem(padding, 10px);*/
+
+    /*img {*/
+      /*max-width: 100%;*/
+    /*}*/
+  /*}*/
+  /*&__desc {*/
+    /*@include rem(padding, 10px);*/
+  /*}*/
+/*}*/

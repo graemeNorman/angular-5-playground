@@ -1,0 +1,47 @@
+
+<!-- Hard-coded breadcrumb (for now just to be able to link back to homepage) -->
+<div class="[ row ]">
+  <div class="[ col-12 ][ breadcrumb ]">
+    <a class="[ typography-body-book ]"
+       routerLink="/" routerLinkActive="active">
+      Home
+    </a>
+    <span *ngIf="!isParentActive"> >
+      <a class="[ typography-body-book ]"
+         routerLink="/buildingBlocks" routerLinkActive="active">
+        Building Blocks menu
+      </a>
+    </span>
+  </div>
+</div>
+<!-- end of breadcrumb -->
+
+<!--<section-description [info]="activeSection" *ngIf="!isParentActive"></section-description>-->
+
+<div class="[ container ][ content__container ]" *ngIf="isParentActive">
+  <div class="[ row ]">
+    <div class="[ col-sm-12 col-md-4 col-lg-12 ]">
+      <h1 class="[ typography-large ]"> Search Results Page! </h1>
+      <p class="[ typography-body-book ]">
+        {{ componentsHeader }}
+      </p>
+    </div>
+    <!--<div class="[ col-sm-12 col-md-8 col-lg-10 ]">-->
+      <!--<div class="[ row ]">-->
+        <!--<div class="[ col-sm-12 col-md-6 col-lg-4 col-xl-3 ]"-->
+             <!--*ngFor="let link of buildingBlock_links">-->
+            <!--<div class="[ component__container ]"-->
+                 <!--routerLink="{{link.linkTo}}" routerLinkActive="active">-->
+              <!--<span class="[ col-12 ][ typography-body-book ]">-->
+                <!--{{ link.name }}-->
+              <!--</span>-->
+            <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+</div>
+
+<div class="[ container ][ content__container ]" *ngIf="!isParentActive">
+  <router-outlet></router-outlet>
+</div>
