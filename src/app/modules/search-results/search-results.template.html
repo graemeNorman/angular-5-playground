@@ -9,7 +9,7 @@
     <span *ngIf="!isParentActive"> >
       <a class="[ typography-body-book ]"
          routerLink="/buildingBlocks" routerLinkActive="active">
-        Building Blocks menu
+        Search Results
       </a>
     </span>
   </div>
@@ -17,12 +17,43 @@
 <!-- end of breadcrumb -->
 
 <div class="[ container ][ content__container ]" *ngIf="isParentActive">
-  <div class="[ row ]">
-    <div class="[ col-sm-12 col-md-4 col-lg-12 ]">
-      <h1 class="[ typography-large ]"> Search Results Page! </h1>
-      <p class="[ typography-body-book ]">
-        {{ componentsHeader }}
-      </p>
+  <div *ngIf="_busy" class="row">
+    <div class="col-12">
+      <img src="/assets/loading.gif" alt="content loading" />
+    </div>
+  </div>
+
+  <div *ngIf="!_busy" class="row">
+
+    <!-- error handling -->
+    <div class="[ col-12 ]"
+         *ngIf="_httpStatus.status !== 200">
+      <h2> Error: <span style="color: red;"> {{ _httpStatus.status }} </span> </h2>
+      <h3> We're sorry. <br /> {{ _httpStatus.message }} </h3>
+      <p> Please try again shortly! </p>
+    </div>
+    <!-- end of error handling -->
+
+    <div class="[ col-4 ]"
+         *ngFor="let offer of _offers?.deals">
+
+      <div class="[ custom__card ]">
+          <span *ngIf="offer?.images.length >= 1">
+            <img class="card-img-top"
+                 src="{{ offer?.images[0].imageUrl }}.jpg" alt="{{ offer?.images[0].alt }}}" />
+          </span>
+        <span *ngIf="offer?.images.length < 1">
+            <img class="card-img-top"
+                 src="http://via.placeholder.com/225x225?text=No%20image%20available" alt="No image available" />
+          </span>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ offer.headline }}</h5>
+          <p class="card-text">Buy now at only £{{ offer.price }}</p>
+          <a href="#" class="btn btn-primary">View deal</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
