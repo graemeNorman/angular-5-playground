@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { ApiService } from '../../services/_http/http-service.service';
 
@@ -12,10 +12,11 @@ import { ApiService } from '../../services/_http/http-service.service';
 export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   isParentActive: boolean;
   routerSubscription: any;
-  componentsHeader = 'This is the search results page!!!!';
+
   public _offers;
   public _busy: boolean;
   public _httpStatus: any;
+  public ar: any;
 
   constructor(private _router: Router, private _apiService: ApiService) {
     // Router Subscription:
@@ -33,17 +34,20 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   }
 
   public getDeals() {
-    this._apiService.getDeals().subscribe(
-      data => { this._offers = data; this._httpStatus.status = 200; },
-      err => {
-        this._busy = false;
-        this._httpStatus = err;
-      },
-      () => {
-        console.log( this._offers.deals[2].images, 'loading deals complete' ),
+    this._apiService._get('liverpool', [['pageSize=10'], ['page=2']]) // ['pageSize=150', 'brand=wowcher']
+      .subscribe(
+        data => {
+          this._offers = data;
+          this._httpStatus.status = 200;
+        },
+        err => {
           this._busy = false;
-      }
-    );
+          this._httpStatus = err;
+        },
+        () => {
+          this._busy = false;
+          console.log('finished loading deals content!'); }
+      );
   }
 
   ngOnInit() {
