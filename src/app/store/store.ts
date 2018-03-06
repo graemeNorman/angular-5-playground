@@ -1,18 +1,21 @@
 import { ITodo } from '../interface/todos.interface';
 import { IDeal } from '../interface/deals.interface';
-import {ADD_TODO, TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODOS, DEAL_RESULTS} from './actions';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODOS, DEAL_RESULTS, DEAL_SELECTED } from './actions';
+import { ISelectedDeal } from '../interface/selected-deals.interface';
 
 export interface IAppState {
   todos: ITodo[];
   lastUpdate: Date;
   deals: IDeal[];
+  selectedDeal: ISelectedDeal;
 }
 
 export const INITIAL_STATE: IAppState = {
   todos: [],
   lastUpdate: null,
-  deals: []
-}
+  deals: [],
+  selectedDeal: null
+};
 
 /*
   state: previous state of the application
@@ -26,7 +29,7 @@ export function rootReducer(state, action) {
       return Object.assign({}, state, {
         todos: state.todos.concat(Object.assign({}, action.payload)),
         lastUpdate: new Date()
-      })
+      });
 
     case TOGGLE_TODO:
       const payload = state.todos.find(t => t.id === action.id);
@@ -38,24 +41,28 @@ export function rootReducer(state, action) {
           ...state.todos.slice(index + 1)
         ],
         lastUpdate: new Date()
-      })
+      });
 
     case REMOVE_TODO:
       return Object.assign({}, state, {
         todos: state.todos.filter(t => t.id !== action.id),
         lastUpdate: new Date()
-      })
+      });
 
     case REMOVE_ALL_TODOS:
       return Object.assign({}, state, {
         todos: [],
         lastUpdate: new Date()
-      })
+      });
 
     case DEAL_RESULTS:
-      console.log('PAYLOAD PAYLOAD PAYLOAD ', action.payload);
       return Object.assign({}, state, {
         deals: action.payload.deals
+      });
+
+    case DEAL_SELECTED:
+      return Object.assign({}, state, {
+        selectedDeal: action.payload
       });
 
   }
