@@ -1,0 +1,18 @@
+<!-- Hard-coded breadcrumb (for now just to be able to link back to homepage) -->
+<div class="[ row ]">
+  <div class="[ col-12 ][ breadcrumb ]">
+    <a class="[ typography-body-book ]"
+       routerLink="/" routerLinkActive="active">
+      Home
+    </a>
+    <span *ngIf="!isParentActive"> >
+      <a class="[ typography-body-book ]"
+         routerLink="/searchResults" routerLinkActive="active">
+        Search Results
+      </a>
+    </span>
+  </div>
+</div>
+<!-- end of breadcrumb -->
+
+<h6>Deal page for deal: {{ deal_id }} </h6>
