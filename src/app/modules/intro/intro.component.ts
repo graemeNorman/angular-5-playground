@@ -14,7 +14,7 @@ export class IntroComponent implements OnInit {
 
     ngOnInit() {
       this.intro = {
-        heading: 'Welcome to Angular 5 playground app',
+        heading: 'Angular 5 playground app',
         contents: [
           'HttpClient',
           'Observables',
@@ -26,15 +26,7 @@ export class IntroComponent implements OnInit {
     }
 
     public showResults() {
-      console.log('you clicked me... nice one!!');
       this.router.navigate(['/', 'searchResults']);
-      //   .then(
-      //   nav => {
-      //     console.log(nav);
-      //   }, err => {
-      //     console.log(err);
-      //   }
-      // );
     }
 
 }
