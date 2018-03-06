@@ -40,11 +40,6 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
     };
   }
 
-  _moo: IDeal = {
-    headline: '',
-    price: ''
-  };
-
   public getDeals() {
     this._apiService._get('liverpool', [['pageSize=10'], ['page=2']]) // ['pageSize=150', 'brand=wowcher']
       .subscribe(
@@ -66,6 +61,10 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
           });
         }
       );
+  }
+
+  public goToDeal(dealId) {
+    console.log('you clicked deal ', dealId);
   }
 
   ngOnInit() {
