@@ -1,7 +1,7 @@
+// Core
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 // Routing
 import { HttpClientModule } from '@angular/common/http';
@@ -20,15 +20,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgReduxModule } from '@angular-redux/store';
 import { StoreModule } from './store/store.module';
 
+// Components
+import { AppComponent } from './app.component';
+import { TodoOverviewComponent } from './component/todo-overview/todo-overview.component';
+import { TodoListComponent } from './component/todo-list/todo-list.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoOverviewComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule,
     ...pageModules,
     // Store / Redux
     NgReduxModule,
