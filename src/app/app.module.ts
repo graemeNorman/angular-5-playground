@@ -16,6 +16,10 @@ import { pageModules } from './modules/index';
 // Other
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Redux & Store
+import { NgReduxModule } from '@angular-redux/store';
+import { StoreModule } from './store/store.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -25,7 +29,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ...pageModules
+    ...pageModules,
+    // Store / Redux
+    NgReduxModule,
+    StoreModule
   ],
   providers: [
     ApiService
