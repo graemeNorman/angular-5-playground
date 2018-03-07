@@ -22,8 +22,8 @@ import { StoreModule } from './store/store.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { TodoOverviewComponent } from './component/todo-overview/todo-overview.component';
-import { TodoListComponent } from './component/todo-list/todo-list.component';
+import { TodoOverviewComponent } from './components/todo-overview/todo-overview.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [

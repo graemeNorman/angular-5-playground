@@ -2,17 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchResultsIndexComponent } from './search-results.component';
 import { SearchResultsRoutingModule } from './search-results-routing.module';
-
-/* Container Components */
-// import { containerComponents } from '../../components/containers/index';
-
-/* UI Components */
-// import { uiComponents } from '../../components/ui/index';
-
-/* Libraries */
-// import { TabsModule, ModalModule, BsDropdownModule } from 'ngx-bootstrap';
-
-// import { GlobalSharedModule } from '../../shared/global.shared.module';
+import { DealsPageSmartComponent } from '../../components/deals-page/deals-page.smart-component';
 
 @NgModule({
   imports: [
@@ -21,13 +11,10 @@ import { SearchResultsRoutingModule } from './search-results-routing.module';
   ],
   declarations: [
     SearchResultsIndexComponent,
-    // ...containerComponents,
-    // ...uiComponents,
+    DealsPageSmartComponent
   ],
-  exports: [ // For NPM module creation please specify components which are associated with this module!
+  exports: [
     SearchResultsIndexComponent,
-    // ...containerComponents,
-    // ...uiComponents
   ]
 })
 
