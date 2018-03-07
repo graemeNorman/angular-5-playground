@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 /* Main component */
-import { SearchResultsIndexComponent } from './search-results.component';
+import { SearchResultsIndexComponent } from './deals.component';
 import { DealsPageSmartComponent } from '../../components/deals-page/deals-page.smart-component';
 
 const searchResultsRoutes: Routes = [
-  { path: 'searchResults',  component: SearchResultsIndexComponent, },
+  { path: 'searchResults',  component: SearchResultsIndexComponent },
   { path: 'searchResults/:dealId', component: DealsPageSmartComponent }
 ];
 

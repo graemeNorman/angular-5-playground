@@ -1,16 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/_http/http-service.service';
 // Redux
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../../store/store';
 import { DEAL_RESULTS } from '../../store/actions';
-import { IDeal } from '../../interface/deals.interface';
+// import { IDeal } from '../../interface/deals.interface';
+
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-search-results-main',
-  templateUrl: 'search-results.template.html',
-  styleUrls: ['./search-results.style.css'],
+  templateUrl: 'deals.template.html',
+  styleUrls: ['./deals.style.css'],
   providers: [ ApiService ]
 })
 
@@ -21,15 +23,25 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   public _offers;
   public _busy: boolean;
   public _httpStatus: any;
-  public ar: any;
+
+  pageSize=0;
+  // products: Product[];
+  sub;
+
+  // constructor(private _Activatedroute:ActivatedRoute,
+  //             private _router:Router,
+  //             private _productService:ProductService){
+  // }
+
 
   constructor(private _router: Router,
+              private _activeRoute: ActivatedRoute,
               private _apiService: ApiService,
               private ngRedux: NgRedux<IAppState>) {
     // Router Subscription:
     this.routerSubscription = this._router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isParentActive = event.url === '/searchResults';
+        this.isParentActive = event.url.startsWith('/searchResults');
         }
     });
 
@@ -40,8 +52,10 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
     };
   }
 
-  public getDeals() {
-    this._apiService._get('liverpool', [['pageSize=10'], ['page=2']]) // ['pageSize=150', 'brand=wowcher']
+  public getDeals(extras) {
+    // console.log( 'these are my extras ', extras );
+
+    this._apiService._get('liverpool', [['pageSize=' + extras]]) // ['pageSize=150', 'brand=wowcher']
       .subscribe(
         data => {
           this._offers = data;
@@ -68,10 +82,27 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getDeals();
+    // this.getDeals();
+
+    console.log('OnInit');
+
+    this.sub = this._activeRoute.queryParams
+      .subscribe(params => {
+        console.log('MY PARAMS ', params);
+        this.pageSize = +params['pageSize'] || 25;
+        this._offers = this.getDeals(this.pageSize);
+        // console.log('Query params ', this.pageSize);
+      });
+
+    // this._offers = this.getDeals();
   }
 
+  // nextPage() {
+  //   this._router.navigate(['./'], { queryParams: { pageSize: this.pageSize + 1 }, relativeTo: this._activeRoute }   );
+  // }
+
   ngOnDestroy() {
+    this.sub.unsubscribe();
     this.routerSubscription.unsubscribe();
   }
 }

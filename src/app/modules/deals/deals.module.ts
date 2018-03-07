@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchResultsIndexComponent } from './search-results.component';
-import { SearchResultsRoutingModule } from './search-results-routing.module';
+import { SearchResultsIndexComponent } from './deals.component';
+import { SearchResultsRoutingModule } from './deals-routing.module';
 import { DealsPageSmartComponent } from '../../components/deals-page/deals-page.smart-component';
 
 @NgModule({
@@ -18,5 +18,5 @@ import { DealsPageSmartComponent } from '../../components/deals-page/deals-page.
   ]
 })
 
-export class SearchResultsModule {}
+export class DealsModule {}
 

@@ -1,15 +1,22 @@
-/*@import "../../../sass/variables";*/
-/*@import "../../../sass/mixins/rem";*/
 
-/*.component {*/
+.custom__card {
+  border-radius: 7px;
+}
 
-  /*&__container {*/
-    /*@include rem(padding, 10px);*/
-    /*border: 2px solid $colours-two;*/
-
-    /*&:hover {*/
-      /*cursor: pointer;*/
-    /*}*/
-  /*}*/
-
-/*}*/
+.custom__card {
+  background: #f7f6f6;
+  min-height: 410px;
+  margin: 0 0 30px;
+  position: relative;
+  box-shadow:
+    0 1px 16px 0 rgba(0,0,0,.2),
+    0 2px 8px 0 rgba(0,0,0,.14),
+    0 4px 8px -1px rgba(0,0,0,.12);
+}
+.custom__card:hover {
+  background: #ffffff;
+}
+.custom__card .select__deal {
+  bottom: 15px;
+  position: absolute;
+}

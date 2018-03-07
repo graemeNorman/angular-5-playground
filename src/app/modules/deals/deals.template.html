@@ -16,6 +16,11 @@
 </div>
 <!-- end of breadcrumb -->
 
+<div style="background: #f0f0f0; border: 1px solid #cfcfcf; border-radius: 8px; padding:10px; margin: 10px 15px 25px;">
+  <h4> Busy - <span style="color:red;">{{ _busy }}</span> </h4>
+  <h4> Parent Active - <span style="color:red;">{{ isParentActive }}</span> </h4>
+</div>
+
 <div class="[ container ][ content__container ]" *ngIf="isParentActive">
   <div *ngIf="_busy" class="row">
     <div class="col-12">
@@ -52,7 +57,7 @@
           <p class="card-text">Buy now at only £{{ offer.price }}</p>
           <a routerLink="{{offer.id}}"
              (click)="goToDeal(offer.id)"
-             class="btn btn-primary">View deal</a>
+             class="[ btn btn-primary ][ select__deal ]">View deal</a>
         </div>
       </div>
 
