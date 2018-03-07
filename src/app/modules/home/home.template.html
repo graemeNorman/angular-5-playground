@@ -19,7 +19,10 @@
       <span> Click to generate results </span>
       <button type="button"
               class="btn btn-primary"
-              (click)="showResults()"> Show Results </button>
+              [routerLink]="['/searchResults']"
+              [queryParams]="{ pageSize: 15 }"
+            > Show Results </button>
+      <!--  (click)="showResults()" -->
     </div>
 
   </div>

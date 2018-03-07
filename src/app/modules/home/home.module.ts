@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { IntroComponent } from './intro.component';
+import { IntroComponent } from './home.component';
 
 @NgModule({
   imports: [
