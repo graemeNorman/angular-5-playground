@@ -1,18 +1,18 @@
-import { ITodo } from '../interface/todos.interface';
+// import { ITodo } from '../interface/todos.interface';
 import { IDeal } from '../interface/deals.interface';
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODOS, DEAL_RESULTS, DEAL_SELECTED } from './actions';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODOS, DEAL_RESULTS, DEAL_SELECTED } from './store.actions';
 import { ISelectedDeal } from '../interface/selected-deals.interface';
 
 export interface IAppState {
-  todos: ITodo[];
-  lastUpdate: Date;
+  // todos: ITodo[];
+  // lastUpdate: Date;
   deals: IDeal[];
   selectedDeal: ISelectedDeal;
 }
 
 export const INITIAL_STATE: IAppState = {
-  todos: [],
-  lastUpdate: null,
+  // todos: [],
+  // lastUpdate: null,
   deals: [],
   selectedDeal: null
 };

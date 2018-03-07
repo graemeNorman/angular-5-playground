@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgRedux, DevToolsExtension } from '@angular-redux/store';
-import { IAppState, INITIAL_STATE, rootReducer } from './store';
+import { IAppState, INITIAL_STATE, rootReducer } from './store.reducers';
+
+// Redux ecosystem stuff (https://github.com/evgenyrodionov/redux-logger).
+import { createLogger } from 'redux-logger';
 
 @NgModule({
   imports: [
@@ -12,15 +15,15 @@ import { IAppState, INITIAL_STATE, rootReducer } from './store';
 export class StoreModule {
 
   constructor(
-    ngRedux: NgRedux<IAppState>,
+    public _store: NgRedux<IAppState>,
     private devTools: DevToolsExtension
   ) {
-    ngRedux.configureStore(
+
+    _store.configureStore(
       rootReducer,
       INITIAL_STATE,
-      [],
-      devTools.isEnabled() ? [devTools.enhancer()] : []
-    );
+      [ createLogger() ],
+      devTools.isEnabled() ? [ devTools.enhancer() ] : []);
   }
 }
 
