@@ -1,7 +1,7 @@
-import { HomeModule } from './intro/intro.module';
-import { SearchResultsModule } from './search-results/search-results.module';
+import { HomeModule } from './home/home.module';
+import { DealsModule } from './deals/deals.module';
 
 export const pageModules = [
   HomeModule,
-  SearchResultsModule
+  DealsModule
 ];

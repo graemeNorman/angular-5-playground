@@ -1,6 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IntroComponent} from './modules/intro/intro.component';
+import { IntroComponent} from './modules/home/home.component';
 
 const appRoutes: Routes = [
   { path: '', component: IntroComponent },
