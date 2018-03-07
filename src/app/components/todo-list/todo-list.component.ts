@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgRedux, select } from '@angular-redux/store';
-import { IAppState } from '../../store/store';
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../../store/actions';
+import { IAppState } from '../../store/store.reducers';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../../store/store.actions';
 import { ITodo } from '../../interface/todos.interface';
 
 @Component({
@@ -20,25 +20,25 @@ export class TodoListComponent implements OnInit {
     isCompleted: false
   };
 
-  constructor(private ngRedux: NgRedux<IAppState>) { }
+  constructor(private _store: NgRedux<IAppState>) { }
 
   ngOnInit() { }
 
   public onSubmit() {
-    this.ngRedux.dispatch({
+    this._store.dispatch({
       type: ADD_TODO,
       payload: this.model
     });
   }
 
   public toggleTodo(todo) {
-    this.ngRedux.dispatch({
+    this._store.dispatch({
       type: TOGGLE_TODO, id: todo.id
     });
   }
 
   public removeTodo(todo) {
-    this.ngRedux.dispatch({
+    this._store.dispatch({
       type: REMOVE_TODO, id: todo.id
     });
   }

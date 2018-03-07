@@ -3,8 +3,8 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/_http/http-service.service';
 // Redux
 import { NgRedux } from '@angular-redux/store';
-import { IAppState } from '../../store/store';
-import { DEAL_RESULTS } from '../../store/actions';
+import { IAppState } from '../../store/store.reducers';
+import { DEAL_RESULTS } from '../../store/store.actions';
 // import { IDeal } from '../../interface/deals.interface';
 
 import 'rxjs/add/operator/filter';
@@ -19,25 +19,18 @@ import 'rxjs/add/operator/filter';
 export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   isParentActive: boolean;
   routerSubscription: any;
+  queryParamSubscription: any;
 
   public _offers;
   public _busy: boolean;
   public _httpStatus: any;
 
-  pageSize=0;
-  // products: Product[];
-  sub;
-
-  // constructor(private _Activatedroute:ActivatedRoute,
-  //             private _router:Router,
-  //             private _productService:ProductService){
-  // }
-
+  public pageSize = 0;
 
   constructor(private _router: Router,
               private _activeRoute: ActivatedRoute,
               private _apiService: ApiService,
-              private ngRedux: NgRedux<IAppState>) {
+              private _store: NgRedux<IAppState>) {
     // Router Subscription:
     this.routerSubscription = this._router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -53,8 +46,6 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   }
 
   public getDeals(extras) {
-    // console.log( 'these are my extras ', extras );
-
     this._apiService._get('liverpool', [['pageSize=' + extras]]) // ['pageSize=150', 'brand=wowcher']
       .subscribe(
         data => {
@@ -69,7 +60,7 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
           this._busy = false;
           console.log('finished loading deals content!');
 
-          this.ngRedux.dispatch({
+          this._store.dispatch({
             type: DEAL_RESULTS,
             payload: this._offers
           });
@@ -82,19 +73,13 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.getDeals();
 
-    console.log('OnInit');
-
-    this.sub = this._activeRoute.queryParams
+    this.queryParamSubscription = this._activeRoute.queryParams
       .subscribe(params => {
-        console.log('MY PARAMS ', params);
         this.pageSize = +params['pageSize'] || 25;
         this._offers = this.getDeals(this.pageSize);
-        // console.log('Query params ', this.pageSize);
       });
 
-    // this._offers = this.getDeals();
   }
 
   // nextPage() {
@@ -102,7 +87,7 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   // }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.queryParamSubscription.unsubscribe();
     this.routerSubscription.unsubscribe();
   }
 }

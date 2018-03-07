@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoListComponent } from './deals-page.smart-component';
+import { DealsPageSmartComponent } from './deals-page.smart-component';
 
-describe('TodoListComponent', () => {
-  let component: TodoListComponent;
-  let fixture: ComponentFixture<TodoListComponent>;
+describe('DealsPageSmartComponent', () => {
+  let component: DealsPageSmartComponent;
+  let fixture: ComponentFixture<DealsPageSmartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListComponent ]
+      declarations: [ DealsPageSmartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoListComponent);
+    fixture = TestBed.createComponent(DealsPageSmartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

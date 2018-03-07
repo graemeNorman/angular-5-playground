@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
-import { IAppState } from '../../store/store';
+import { IAppState } from '../../store/store.reducers';
 import { ActivatedRoute } from '@angular/router';
-import { DEAL_SELECTED } from '../../store/actions';
+import { DEAL_SELECTED } from '../../store/store.actions';
 
 @Component({
   selector: 'app-deals-page',
@@ -13,9 +13,9 @@ export class DealsPageSmartComponent implements OnInit {
 
   public deal_id: string;
 
-  constructor(private ngRedux: NgRedux<IAppState>,
+  constructor(private _store: NgRedux<IAppState>,
               private _activeRoute: ActivatedRoute) {
-    this.ngRedux.dispatch({
+    this._store.dispatch({
       type: DEAL_SELECTED,
       payload: {
         id: this._activeRoute.snapshot.params[ 'dealId' ]
