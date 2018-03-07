@@ -16,10 +16,7 @@ export class ApiService {
   private baseUrl = 'https://public-api.wowcher.co.uk/v1/deal';
 
   public _get<T>(entityName: string, parameters: any): Observable<any> {
-
     const urlParams = Obj.toUrlParams(parameters);
-
-    console.log('urlParams ', urlParams);
 
     return this._http.get(`${this.baseUrl}/${entityName}?${urlParams}`);
   }
