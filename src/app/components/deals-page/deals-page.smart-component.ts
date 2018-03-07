@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgRedux, select } from '@angular-redux/store';
+import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../../store/store';
 import { ActivatedRoute } from '@angular/router';
 import { DEAL_SELECTED } from '../../store/actions';
@@ -11,7 +11,7 @@ import { DEAL_SELECTED } from '../../store/actions';
 })
 export class DealsPageSmartComponent implements OnInit {
 
-  deal_id: string;
+  public deal_id: string;
 
   constructor(private ngRedux: NgRedux<IAppState>,
               private _activeRoute: ActivatedRoute) {
