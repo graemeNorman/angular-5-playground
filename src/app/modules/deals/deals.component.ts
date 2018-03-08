@@ -1,12 +1,16 @@
+// Core
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+
+// Services
 import { ApiService } from '../../services/_http/http-service.service';
+
 // Redux
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../../store/store.reducers';
-import { DEAL_RESULTS } from '../../store/store.actions';
-// import { IDeal } from '../../interface/deals.interface';
+import { DealActions } from '../../store/actions/deal.actions';
 
+// RXJS
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -28,6 +32,7 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   public pageSize = 0;
 
   constructor(private _router: Router,
+              private _actions: DealActions,
               private _activeRoute: ActivatedRoute,
               private _apiService: ApiService,
               private _store: NgRedux<IAppState>) {
@@ -58,18 +63,13 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
         },
         () => {
           this._busy = false;
-          console.log('finished loading deals content!');
-
-          this._store.dispatch({
-            type: DEAL_RESULTS,
-            payload: this._offers
-          });
+          this._store.dispatch(this._actions.resultsResponse(this._offers));
         }
       );
   }
 
-  public goToDeal(dealId) {
-    console.log('you clicked deal ', dealId);
+  public goToDeal() {
+    this._store.dispatch(this._actions.dealSelect());
   }
 
   ngOnInit() {
