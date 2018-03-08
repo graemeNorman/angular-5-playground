@@ -5,12 +5,16 @@ import { IAppState, INITIAL_STATE, rootReducer } from './store.reducers';
 
 // Redux ecosystem stuff (https://github.com/evgenyrodionov/redux-logger).
 import { createLogger } from 'redux-logger';
+import { moduleActions } from './store.actions';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: []
+  declarations: [],
+  providers: [
+    ...moduleActions
+  ]
 })
 export class StoreModule {
 
