@@ -22,14 +22,10 @@ import { StoreModule } from './store/store.module';
 
 // Components
 import { AppComponent } from './app.component';
-// import { TodoOverviewComponent } from './components/todo-overview/todo-overview.component';
-// import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
     AppComponent
-    // TodoOverviewComponent,
-    // TodoListComponent
   ],
   imports: [
     BrowserModule,
