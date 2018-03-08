@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+// Redux
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from '../../store/store.reducers';
+import { DealActions } from '../../store/actions/deal.actions';
+
 @Component({
     selector: 'app-intro-home',
     templateUrl: 'home.template.html',
@@ -11,7 +16,9 @@ export class IntroComponent implements OnInit {
 
   intro: any;
 
-  constructor(private router: Router) { }
+  constructor(private _router: Router,
+              private _actions: DealActions,
+              private _store: NgRedux<IAppState>) { }
 
   ngOnInit() {
     this.intro = {
@@ -26,9 +33,9 @@ export class IntroComponent implements OnInit {
     };
   }
 
-  // public showResults() {
-  //   // this.router.navigate(['/', 'searchResults']);
-  //   this.router.navigate(['/searchResults'], { queryParams: { pageSize: 25, 'page': 1 } });
-  // }
+  public showResults() {
+    this._store.dispatch({ type: this._actions.resultsRequest() });
+    this._router.navigate(['/searchResults'], { queryParams: { pageSize: 25 } });
+  }
 
 }
