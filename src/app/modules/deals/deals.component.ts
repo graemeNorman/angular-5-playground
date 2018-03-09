@@ -53,18 +53,9 @@ export class SearchResultsIndexComponent implements OnInit, OnDestroy {
   public getDeals(extras) {
     this._apiService._get('liverpool', [['pageSize=' + extras]]) // ['pageSize=150', 'brand=wowcher']
       .subscribe(
-        data => {
-          this._offers = data;
-          this._httpStatus.status = 200;
-        },
-        err => {
-          this._busy = false;
-          this._httpStatus = err;
-        },
-        () => {
-          this._busy = false;
-          this._store.dispatch(this._actions.resultsResponse(this._offers));
-        }
+        data => { this._offers = data; this._httpStatus.status = 200; },
+        err => { this._busy = false; this._httpStatus = err; },
+        () => { this._busy = false; this._store.dispatch(this._actions.resultsResponse(this._offers)); }
       );
   }
 
