@@ -2,16 +2,16 @@
 import { DealActions } from './actions/deal.actions';
 
 // Interfaces
-import { IDeal } from '../interface/deals.interface';
+import { IResults } from '../interface/results.interface';
 import { ISelectedDeal } from '../interface/selected-deals.interface';
 
 export interface IAppState {
-  deals: IDeal[];
+  results: IResults[];
   selectedDeal: ISelectedDeal;
 }
 
 export const INITIAL_STATE: IAppState = {
-  deals: [],
+  results: [],
   selectedDeal: null
 };
 
@@ -26,7 +26,7 @@ export function rootReducer(state, action) {
       return Object.assign({}, state, {});
 
     case DealActions.RESULTS_RESPONSE:
-      return Object.assign({}, state, {deals: action.payload});
+      return Object.assign({}, state, {results: action.payload});
 
     case DealActions.DEAL_SELECTED:
       return Object.assign({}, state, {});

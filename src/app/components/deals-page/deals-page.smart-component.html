@@ -16,3 +16,17 @@
 <!-- end of breadcrumb -->
 
 <h6>Deal page for deal: {{ deal_id }} </h6>
+
+<ul>
+  <li *ngFor="let todo of dummySelect$ | async;">
+
+    <span *ngIf="deal_id == todo.id">
+      <strong style="color: red">
+        <span> {{ todo.id }} <br /> {{ todo.headline }} </span>
+        <img src="{{ todo?.images[0].imageUrl }}.jpg" />
+      </strong> <br />
+    </span>
+
+    <span> {{ todo.id }} <br /> {{ todo.headline }} </span>
+  </li>
+</ul>
